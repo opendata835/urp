@@ -22,3 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 npmstart.log
+
+#updaters
+/updater/minjustod01/data

@@ -18,7 +18,9 @@ import {
     SelectInput,
     SimpleForm,
     TextInput,
-    Filter
+    Filter,
+    TabbedForm,
+    FormTab
 } from 'react-admin';
 
 const TemplateFilter = props => (
@@ -38,7 +40,7 @@ export const TemplateList = ({ classes, ...props }) => (
              >
                 <Datagrid rowClick="edit">
                     <TextField label="" source="" />
-                    <EditButton />
+                    <EditButton label="Змінити"/>
                     <ShowButton />
                 </Datagrid>
         </List>
@@ -64,7 +66,7 @@ export const TemplateCreate = ({ classes, ...props }) => (
 
 export const TemplateEdit = ({ classes, ...props }) => (
     <div>
-        <Edit title={<TemplateTitle />} {...props}>
+        <Edit {...props}>
             <TabbedForm redirect="show">
                 <FormTab label="Основні">
                     <TextInput type="" autoFocus source="" formClassName={classes.nickname} />

@@ -19,7 +19,8 @@ import {
     SimpleForm,
     TextInput,
     Filter,
-    NumberField
+    TabbedForm,
+    FormTab
 } from 'react-admin';
 
 
@@ -49,8 +50,53 @@ export const Minjustod01UOList = ({ classes, ...props }) => {
                         <TextField label="КВЕД повний" source="kvedfull" />
                         <TextField label="Почтовий індекс" source="postcode" />
                         <TextField label="Стан реєстрації" source="status" />
+                        <EditButton label="Змінити"/>
                     </Datagrid>
                 </List>
         </div>
     )
 };
+
+export const Minjustod01UOCreate = ({ classes, ...props }) => (
+    <div>
+        <Create {...props }>
+                <TabbedForm redirect="show">
+                    <FormTab label="Основні">
+                        <TextInput label="ЄДРПОУ" source="edrpou" />
+                        <TextInput label="Назва" source="name" />
+                        <TextInput label="Коротка назва" source="shortname" />
+                        <TextInput label="Керівник" source="bossname" />
+                        <TextInput label="Адреса" source="address" />
+                        <TextInput label="КВЕД" source="kved" />
+                        <TextInput label="КВЕД повний" source="kvedfull" />
+                        <TextInput label="Почтовий індекс" source="postcode" />
+                        <TextInput label="Стан реєстрації" source="status" />
+                    </FormTab>
+                    <FormTab label="Додаткові">
+                    </FormTab>
+                </TabbedForm>
+        </Create>
+    </div>
+);
+
+export const Minjustod01UOEdit = ({ classes, ...props }) => (
+    <div>
+        <Edit {...props}>
+            <TabbedForm redirect="show">
+                <FormTab label="Основні">
+                        <TextInput label="ЄДРПОУ" source="edrpou" />
+                        <TextInput label="Назва" source="name" />
+                        <TextInput label="Коротка назва" source="shortname" />
+                        <TextInput label="Керівник" source="bossname" />
+                        <TextInput label="Адреса" source="address" />
+                        <TextInput label="КВЕД" source="kved" />
+                        <TextInput label="КВЕД повний" source="kvedfull" />
+                        <TextInput label="Почтовий індекс" source="postcode" />
+                        <TextInput label="Стан реєстрації" source="status" />
+                </FormTab>
+                <FormTab label="Додаткові">
+                </FormTab>
+            </TabbedForm>
+        </Edit>
+    </div>
+);

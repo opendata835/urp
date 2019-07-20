@@ -75,10 +75,9 @@ ef=open("data/edrpou_founder.csv","w")
 mef=open("data/multy_edrpou_founder.csv","w")
 
 
-multy_edrpou_founders = {}
 line_processed = 0
 no_founders_count = 0
-orgs = {}
+multy_edrpou_founders_count = 0
 edrpou_founders = {}
 while(1):
     line=f.readline()
@@ -143,11 +142,14 @@ while(1):
         if pindex is None: pindex=''
         address=address[7:]
     # name,short_name,edrpou,address,pindex,boss_name,kved_full,status,kved
-    orgs[edrpou] = [name,sname,edrpou,address,pindex,boss,kved_full,record['STAN'],kved]
+    org_data = [name,sname,edrpou,address,pindex,boss,kved_full,record['STAN'],kved]
+    uo_writer.writerow(org_data)
     if 'FOUNDERS' in record:
         founders=record['FOUNDERS']['FOUNDER']
         if isinstance(founders, list):
             multy_edrpou_founders[edrpou] = founders
+            multy_edrpou_founders_count += 1
+            mef.write("'{}'\t'{}'\n".format(edrpou, founders))
             if '&sem;' in founders:
                 print(founders)
                 raise Exception('Error! &sem; is bad separator for founders!')
@@ -155,6 +157,7 @@ while(1):
             edrpou_founders[edrpou] = '&sem;'.join(founders)  #.replace('"', "&quot;")
         else:
             edrpou_founders[edrpou] = founders  #.replace('"', "&quot;")
+        ef.write("'{}'\t'{}'\n".format(edrpou, founder))
     else:
         no_founders_count+=1
     line_processed+=1
@@ -162,16 +165,8 @@ while(1):
         print('Lines processed count: {}'.format(line_processed))
         # TODO: delete this
 
-for org_data in orgs.values():
-    uo_writer.writerow(org_data)
-
-for edrpou, founder in edrpou_founders.items():
-    ef.write("'{}'\t'{}'\n".format(edrpou, founder))
-
-print('edrpous that have more then one founder count: {}. Writen to multy_edrpou_founder.csv file'.format(len(multy_edrpou_founders)))
+print('edrpous that have more then one founder count: {}. Writen to multy_edrpou_founder.csv file'.format(multy_edrpou_founders_count))
 print("edrpous that don't have founders count: {}".format(no_founders_count))
-for edrpou, founders in multy_edrpou_founders.items():
-    mef.write("'{}'\t'{}'\n".format(edrpou, founders))
 
 uo_file.close()
 ef.close()

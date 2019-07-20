@@ -12,7 +12,7 @@ import Menu from './configuration/layout/Menu';
 // import themeReducer from './app/themeReducer';
 
 
-import { Minjustod01UOList }  from './datasets/MinjustOD01UO';
+import { Minjustod01UOList, Minjustod01UOCreate, Minjustod01UOEdit }  from './datasets/MinjustOD01UO';
 
 
 
@@ -32,7 +32,7 @@ const App = () => (
         >
             {/* <Resource name="" list={ListGuesser} /> */}
             {/* <Resource name="" {...} /> */}
-            <Resource name="minjustod01uo" icon={UserIcon} list={Minjustod01UOList} />
+            <Resource name="minjustod01uo" icon={UserIcon} list={Minjustod01UOList} create={Minjustod01UOCreate} edit={Minjustod01UOEdit} />
         </Admin>
     </div>
 );
