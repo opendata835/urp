@@ -23,9 +23,9 @@ import {
 } from 'react-admin';
 
 
-const Minjustod01edrpuoFilter = props => (
+const Minjustod01UOFilter = props => (
     <Filter {...props}>
-                    <TextInput label="ЄДРПУО" source="edrpou" alwaysOn />
+                    <TextInput label="ЄДРПОУ" source="edrpou" alwaysOn />
                     <TextInput label="Назва" source="name" alwaysOn />
                     <TextInput label="Коротка назва" source="shortname" />
                     <TextInput label="Керівник" source="bossname" />
@@ -37,10 +37,10 @@ const Minjustod01edrpuoFilter = props => (
     </Filter>
 );
 
-export const Minjustod01edrpuoList = ({ classes, ...props }) => {
-        return (<div> <List {...props} filters={<Minjustod01edrpuoFilter />} sort={{ field: 'edrpou', order: 'DESC' }} perPage={50}>
+export const Minjustod01UOList = ({ classes, ...props }) => {
+        return (<div> <List {...props} filters={<Minjustod01UOFilter />} sort={{ field: 'edrpou', order: 'DESC' }} perPage={50}>
                     <Datagrid>
-                        <TextField label="ЄДРПУО" source="edrpou" />
+                        <TextField label="ЄДРПОУ" source="edrpou" />
                         <TextField label="Назва" source="name" />
                         <TextField label="Коротка назва" source="shortname" />
                         <TextField label="Керівник" source="bossname" />

@@ -12,7 +12,7 @@ import authProvider from './service/authProvider';
 
 // import Menu from './configuration/layout/Menu';
 
-import { Minjustod01edrpuoList }  from './datasets/MinjustOD01edrpuo';
+import { Minjustod01UOList }  from './datasets/MinjustOD01UO';
 
 
 
@@ -33,7 +33,7 @@ const App = () => (
         {/* <Resource name="" list={ListGuesser} /> */}
         {/* <Resource name="" {...} /> */}
         {/* <Resource name="minjustod01edruo" icon={UserIcon} list={Minjustod01edruoList} /> */}
-        <Resource name="minjustod01edruo" icon={UserIcon} list={Minjustod01edrpuoList} />
+        <Resource name="minjustod01uo" icon={UserIcon} list={Minjustod01UOList} />
     </Admin>
 );
 export default App;
