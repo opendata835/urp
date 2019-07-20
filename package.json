@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "homepage": "https://reestr.ecoalition.org.ua/",
   "dependencies": {
+    "material-ui": "^0.20.2",
     "ra-auth-acl": "^0.1.1",
     "ra-data-hasura": "^0.0.6",
     "ra-language-ukrainian": "^2.3.0",
