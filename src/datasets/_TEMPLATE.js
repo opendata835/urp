@@ -29,46 +29,52 @@ const TemplateFilter = props => (
 );
 
 export const TemplateList = ({ classes, ...props }) => (
-    <List
-        {...props}
-        filters={<TemplateFilter />}
-        sort={{ field: '', order: 'DESC' }}
-        perPage={50}
-    >
-            <Datagrid rowClick="edit">
-                <TextField label="" source="" />
-                <EditButton />
-                <ShowButton />
-            </Datagrid>
-    </List>
+    <div>
+            <List
+            {...props}
+            filters={<TemplateFilter />}
+            sort={{ field: '', order: 'DESC' }}
+            perPage={50}
+             >
+                <Datagrid rowClick="edit">
+                    <TextField label="" source="" />
+                    <EditButton />
+                    <ShowButton />
+                </Datagrid>
+        </List>
+    </div>
 );
 
 export const TemplateCreate = ({ classes, ...props }) => (
-    <Create {...props }>
-        <TabbedForm redirect="show">
-            <FormTab label="Основні">
-                <TextInput type="" autoFocus source="" formClassName={classes.nickname} />
-                <ReferenceInput source="" reference="" label="" defaultValue={5} >
-                    <SelectInput source="" />
-                </ReferenceInput>
-            </FormTab>
-            <FormTab label="Додаткові">
-            </FormTab>
-        </TabbedForm>
-    </Create>
+    <div>
+        <Create {...props }>
+                <TabbedForm redirect="show">
+                    <FormTab label="Основні">
+                        <TextInput type="" autoFocus source="" formClassName={classes.nickname} />
+                        <ReferenceInput source="" reference="" label="" defaultValue={5} >
+                            <SelectInput source="" />
+                        </ReferenceInput>
+                    </FormTab>
+                    <FormTab label="Додаткові">
+                    </FormTab>
+                </TabbedForm>
+        </Create>
+    </div>
 );
 
 export const TemplateEdit = ({ classes, ...props }) => (
-    <Edit title={<TemplateTitle />} {...props}>
-         <TabbedForm redirect="show">
-            <FormTab label="Основні">
-                <TextInput type="" autoFocus source="" formClassName={classes.nickname} />
-                <ReferenceInput source="" reference="" label="" defaultValue={5} >
-                    <SelectInput source="" />
-                </ReferenceInput>
-            </FormTab>
-            <FormTab label="Додаткові">
-            </FormTab>
-        </TabbedForm>
-    </Edit>
+    <div>
+        <Edit title={<TemplateTitle />} {...props}>
+            <TabbedForm redirect="show">
+                <FormTab label="Основні">
+                    <TextInput type="" autoFocus source="" formClassName={classes.nickname} />
+                    <ReferenceInput source="" reference="" label="" defaultValue={5} >
+                        <SelectInput source="" />
+                    </ReferenceInput>
+                </FormTab>
+                <FormTab label="Додаткові">
+                </FormTab>
+            </TabbedForm>
+        </Edit>
+    </div>
 );
