@@ -3,14 +3,18 @@
   "version": "0.0.1",
   "homepage": "https://reestr.ecoalition.org.ua/",
   "dependencies": {
-    "material-ui": "^0.20.2",
+    "@material-ui/core": "^4.2.1",
+    "@material-ui/icons": "^4.2.1",
     "ra-auth-acl": "^0.1.1",
+    "ra-core": "^2.9.5",
     "ra-data-hasura": "^0.0.6",
     "ra-language-ukrainian": "^2.3.0",
     "react": "^16.8.6",
     "react-admin": "^2.9.5",
     "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^3.0.1",
+    "recompose": "^0.30.0",
+    "typescript": "^3.5.3"
   },
   "scripts": {
     "start": "PORT=3002 react-scripts start",

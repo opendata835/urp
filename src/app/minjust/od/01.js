@@ -12,15 +12,13 @@ import {
     TextInput,
     ReferenceField,
 } from 'react-admin';
-import MobileGrid from './MobileGrid';
 
-
-const Minjustod01edruo = (props) => {
-    Minjustod01edruoFilter,
+const Minjustod01edruo = (props) => ({
     Minjustod01edruoList,
+    Minjustod01edruoFilter
     // Minjustod01edruoCreate,
     // Minjustod01edruoEdit
-};
+});
 
 const Minjustod01edruoFilter = (props) => (
     <Filter {...props}>
@@ -43,10 +41,7 @@ const Minjustod01edruoList = ({ classes, ...props }) => (
         sort={{ field: 'edrpou', order: 'DESC' }}
         perPage={50}
     >
-        <Responsive
-            xsmall={<MobileGrid />}
-            medium={
-            <Datagrid rowClick="edit">
+             <Datagrid rowClick="edit">
                     {/* <TextField source="id" /> */}
                     <TextInput label="ЄДРПУО" source="edrpou" />
                     <TextField label="Назва" source="name" />
@@ -59,7 +54,6 @@ const Minjustod01edruoList = ({ classes, ...props }) => (
                     <TextField label="Стан реєстрації" source="status" />
                 <EditButton />
             </Datagrid>
-            }
         />
     </List>
 );
@@ -94,4 +88,4 @@ const Minjustod01edruoList = ({ classes, ...props }) => (
 //     </Edit>
 // );
 
-export default Minjustod01edruo(styles)(Minjustod01edruo);
+export default Minjustod01edruo (Minjustod01edruo);

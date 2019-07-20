@@ -12,8 +12,6 @@ import {
     TextInput,
     ReferenceField,
 } from 'react-admin';
-import MobileGrid from './MobileGrid';
-
 
 const Template = (props) => (
     TemplateFilter,
@@ -36,15 +34,10 @@ const TemplateList = ({ classes, ...props }) => (
         sort={{ field: '', order: 'DESC' }}
         perPage={50}
     >
-        <Responsive
-            xsmall={<MobileGrid />}
-            medium={
             <Datagrid rowClick="edit">
                 <TextField label="" source="" />
                 <EditButton />
             </Datagrid>
-            }
-        />
     </List>
 );
 
@@ -78,4 +71,4 @@ const TemplateEdit = ({ classes, ...props }) => (
     </Edit>
 );
 
-export default withStyles(styles)(Template);
+export default Template (Template);
