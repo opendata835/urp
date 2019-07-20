@@ -1,6 +1,7 @@
 {
   "name": "Ukrainian Registry Platform",
   "version": "0.0.1",
+  "homepage": "https://reestr.ecoalition.org.ua/",
   "dependencies": {
     "ra-auth-acl": "^0.1.1",
     "ra-data-hasura": "^0.0.6",
@@ -8,11 +9,10 @@
     "react-admin": "^2.9.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+    "start": "PORT=3002 react-scripts start",
+    "build": "PORT=3002 react-scripts build",
+    "eject": "PORT=3002 react-scripts eject"
+},
   "eslintConfig": {
     "extends": "react-app"
   },
