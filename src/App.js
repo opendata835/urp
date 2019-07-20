@@ -1,5 +1,5 @@
 import React from 'react';
-import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource, ListGuesser, } from 'react-admin';
 import hasuraDataProvider from 'ra-data-hasura';
 
 
@@ -14,11 +14,12 @@ const hasuraUrl = 'https://graphql.ecoalition.org.ua';
 const headers = {}
 const App = () => (
     <Admin
+        title="URP"
         dataProvider={hasuraDataProvider(hasuraUrl, headers)}
         authProvider={authProvider}
         // dashboard={Dashboard}
     >
-        <Resource name="minjustod01edruo" list={ListGuesser} />
+        <Resource name="minjustod01edruo" title="Реєстр ЕДР" list={ListGuesser} />
     </Admin>
 );
 export default App;
