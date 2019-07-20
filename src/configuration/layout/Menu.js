@@ -34,12 +34,12 @@ class Menu extends Component {
                             handleToggle={() => this.handleToggle('menuMinjust')}
                             isOpen={this.state.menuMinjust}
                             sidebarIsOpen={open}
-                            name="Мін. юстиції"
+                            name="Міністерство юстиції"
                             icon={AccountBalance}
                             >
                                 <MenuItemLink
-                                to={`/minjustod01edruo`}
-                                primaryText='Юрлица'
+                                to={`/minjustod01uo`}
+                                primaryText='Юрідични ліца'
                                 onClick={onMenuClick}
                                 icon={AccountBalance}
                                 />                                

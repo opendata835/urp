@@ -17,30 +17,34 @@ const styles = {
 };
 
 const CustomUserMenu = ((...props) => (
-    <UserMenu {...props}>
-        <MenuItemLink
-            to="/configuration"
-            primaryText='Налаштування'
-            leftIcon={<SettingsIcon />}
-        />
-        <MenuItemLink
-            to="/logout"
-            primaryText='Вихід'
-            leftIcon={<SettingsIcon />}
-        />
-    </UserMenu>
+    <div>
+        <UserMenu {...props}>
+            <MenuItemLink
+                to="/configuration"
+                primaryText='Налаштування'
+                leftIcon={<SettingsIcon />}
+            />
+            <MenuItemLink
+                to="/logout"
+                primaryText='Вихід'
+                leftIcon={<SettingsIcon />}
+            />
+        </UserMenu>
+    </div>
 ));
 
 const CustomAppBar = ({ classes, ...props }) => (
-    <AppBar {...props} userMenu={<CustomUserMenu />}>
-        <Typography
-            variant="title"
-            color="inherit"
-            className={classes.title}
-            id="react-admin-title"
-        />
-        <span className={classes.spacer} />
-    </AppBar>
+    <div>
+        <AppBar {...props} userMenu={<CustomUserMenu />}>
+            <Typography
+                variant="title"
+                color="inherit"
+                className={classes.title}
+                id="react-admin-title"
+            />
+            <span className={classes.spacer} />
+        </AppBar>
+    </div>
 );
 
 export default withStyles(styles)(CustomAppBar);

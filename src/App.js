@@ -7,10 +7,10 @@ import UserIcon from '@material-ui/icons/Group';
 import hasuraDataProvider from 'ra-data-hasura';
 import authProvider from './service/authProvider';
 
-// import { Layout } from './configuration/layout';
+import { Layout } from './configuration/layout';
+import Menu from './configuration/layout/Menu';
 // import themeReducer from './app/themeReducer';
 
-// import Menu from './configuration/layout/Menu';
 
 import { Minjustod01UOList }  from './datasets/MinjustOD01UO';
 
@@ -21,19 +21,19 @@ const headers = {}
 
 
 const App = () => (
-    <Admin
-        title="URP"
-        // menu={Menu}
-        dataProvider={hasuraDataProvider(hasuraUrl, headers)}
-        authProvider={authProvider}
-        locale="ua"
-        // customReducers={{ theme: themeReducer }}
-        // appLayout={Layout}
-    >
-        {/* <Resource name="" list={ListGuesser} /> */}
-        {/* <Resource name="" {...} /> */}
-        {/* <Resource name="minjustod01edruo" icon={UserIcon} list={Minjustod01edruoList} /> */}
-        <Resource name="minjustod01uo" icon={UserIcon} list={Minjustod01UOList} />
-    </Admin>
+    <div>    
+        <Admin
+            dataProvider={hasuraDataProvider(hasuraUrl, headers)}
+            authProvider={authProvider}
+            menu={Menu}
+            appLayout={Layout}
+            locale="ua"
+            // customReducers={{ theme: themeReducer }}
+        >
+            {/* <Resource name="" list={ListGuesser} /> */}
+            {/* <Resource name="" {...} /> */}
+            <Resource name="minjustod01uo" icon={UserIcon} list={Minjustod01UOList} />
+        </Admin>
+    </div>
 );
 export default App;
