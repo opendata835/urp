@@ -1,21 +1,18 @@
 import React from 'react';
 import { Admin, Resource, ListGuesser, } from 'react-admin';
 
+import UserIcon from '@material-ui/icons/Group';
 
 
-import './App.css';
 import hasuraDataProvider from 'ra-data-hasura';
-import authProvider from './app/authProvider';
+import authProvider from './service/authProvider';
 
+// import { Layout } from './configuration/layout';
+// import themeReducer from './app/themeReducer';
 
-import { Login, Layout } from './layout';
-import UAMessages from './i18n/ua';
-import themeReducer from './themeReducer';
+// import Menu from './configuration/layout/Menu';
 
-// import Menu from './Menu';
-
-// import Dashboard from './app/Dashboard';
-import minjustod01edruo  from './app/minjust/od/01';
+import { Minjustod01edrpuoList }  from './datasets/MinjustOD01edrpuo';
 
 
 
@@ -29,15 +26,14 @@ const App = () => (
         // menu={Menu}
         dataProvider={hasuraDataProvider(hasuraUrl, headers)}
         authProvider={authProvider}
-        customReducers={{ theme: themeReducer }}
-        // loginPage={Login}
-        appLayout={Layout}
-        locale={UAMessages}
-        // dashboard={Dashboard}
+        locale="ua"
+        // customReducers={{ theme: themeReducer }}
+        // appLayout={Layout}
     >
         {/* <Resource name="" list={ListGuesser} /> */}
         {/* <Resource name="" {...} /> */}
-        <Resource name="minjustod01edruo" options={{ label: 'ЕДР' }} {...minjustod01edruo} />
+        {/* <Resource name="minjustod01edruo" icon={UserIcon} list={Minjustod01edruoList} /> */}
+        <Resource name="minjustod01edruo" icon={UserIcon} list={Minjustod01edrpuoList} />
     </Admin>
 );
 export default App;

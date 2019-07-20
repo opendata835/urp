@@ -1,24 +1,25 @@
 import React from 'react';
 import {
-    BooleanField,
-    Datagrid,
+    Show,
+    ShowButton,
+    SimpleShowLayout,
+    RichTextField,
     DateField,
-    EditButton,
-    EmailField,
-    Filter,
     List,
-    Responsive,
-    TextField,
-    TextInput,
+    Edit,
+    Create,
+    Datagrid,
     ReferenceField,
+    TextField,
+    EditButton,
+    DisabledInput,
+    LongTextInput,
+    ReferenceInput,
+    SelectInput,
+    SimpleForm,
+    TextInput,
+    Filter
 } from 'react-admin';
-
-const Template = (props) => (
-    TemplateFilter,
-    TemplateList,
-    TemplateCreate,
-    TemplateEdit
-);
 
 const TemplateFilter = (props) => (
     <Filter {...props}>
@@ -27,7 +28,7 @@ const TemplateFilter = (props) => (
     </Filter>
 );
 
-const TemplateList = ({ classes, ...props }) => (
+export const TemplateList = ({ classes, ...props }) => (
     <List
         {...props}
         filters={<TemplateFilter />}
@@ -41,7 +42,7 @@ const TemplateList = ({ classes, ...props }) => (
     </List>
 );
 
-const TemplateCreate = ({ classes, ...props }) => (
+export const TemplateCreate = ({ classes, ...props }) => (
     <Create {...props }>
         <TabbedForm redirect="show">
             <FormTab label="Основні">
@@ -56,7 +57,7 @@ const TemplateCreate = ({ classes, ...props }) => (
     </Create>
 );
 
-const TemplateEdit = ({ classes, ...props }) => (
+export const TemplateEdit = ({ classes, ...props }) => (
     <Edit title={<TemplateTitle />} {...props}>
          <TabbedForm redirect="show">
             <FormTab label="Основні">
@@ -70,5 +71,3 @@ const TemplateEdit = ({ classes, ...props }) => (
         </TabbedForm>
     </Edit>
 );
-
-export default Template (Template);
