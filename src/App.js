@@ -5,8 +5,7 @@ import hasuraDataProvider from 'ra-data-hasura';
 
 import authProvider from './app/authProvider';
 // import Dashboard from './app/Dashboard';
-// import { UserList } from './app/user';
-// import minjustod01edruo  from './app/minjust/od/01';
+import minjustod01edruo  from './app/minjust/od/01';
 
 
 
@@ -19,7 +18,9 @@ const App = () => (
         authProvider={authProvider}
         // dashboard={Dashboard}
     >
-        <Resource name="minjustod01edruo" title="Реєстр ЕДР" list={ListGuesser} />
+        {/* <Resource name="" list={ListGuesser} /> */}
+        {/* <Resource name="" {...} /> */}
+        <Resource name="minjustod01edruo" {...minjustod01edruo} />
     </Admin>
 );
 export default App;
