@@ -29,10 +29,6 @@ const TemplateFilter = (props) => (
     </Filter>
 );
 
-const styles = {
-    nb_commands: { color: 'purple' },
-};
-
 const TemplateList = ({ classes, ...props }) => (
     <List
         {...props}

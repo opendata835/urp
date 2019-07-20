@@ -26,7 +26,7 @@ const Minjustod01edruoFilter = (props) => (
     <Filter {...props}>
                     <TextInput label="ЄДРПУО" source="edrpou" alwaysOn />
                     <TextField label="Назва" source="name" alwaysOn />
-                    <TextField label="Коотка назва" source="shortname" />
+                    <TextField label="Коротка назва" source="shortname" />
                     <TextField label="Керівник" source="bossname" />
                     <TextField label="Адреса" source="address" />
                     <TextField label="КВЕД" source="kved" alwaysOn />
@@ -35,10 +35,6 @@ const Minjustod01edruoFilter = (props) => (
                     <TextField label="Стан реєстрації" source="status" alwaysOn />
     </Filter>
 );
-
-const styles = {
-    nb_commands: { color: 'purple' },
-};
 
 const Minjustod01edruoList = ({ classes, ...props }) => (
     <List
@@ -54,7 +50,7 @@ const Minjustod01edruoList = ({ classes, ...props }) => (
                     {/* <TextField source="id" /> */}
                     <TextInput label="ЄДРПУО" source="edrpou" />
                     <TextField label="Назва" source="name" />
-                    <TextField label="Коотка назва" source="shortname" />
+                    <TextField label="Коротка назва" source="shortname" />
                     <TextField label="Керівник" source="bossname" />
                     <TextField label="Адреса" source="address" />
                     <TextField label="КВЕД" source="kved" />
