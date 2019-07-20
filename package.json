@@ -6,13 +6,14 @@
     "ra-auth-acl": "^0.1.1",
     "ra-data-hasura": "^0.0.6",
     "ra-language-ukrainian": "^2.3.0",
-    "react-admin": "^2.9.5"
+    "react-admin": "^2.9.5",
+    "react-scripts": "^3.0.1"
   },
   "scripts": {
     "start": "PORT=3002 react-scripts start",
     "build": "PORT=3002 react-scripts build",
     "eject": "PORT=3002 react-scripts eject"
-},
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
