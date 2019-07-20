@@ -21,7 +21,7 @@ import {
     Filter
 } from 'react-admin';
 
-const TemplateFilter = (props) => (
+const TemplateFilter = props => (
     <Filter {...props}>
                 <TextInput label="" source="" alwaysOn />
                 <TextInput label="" source="" />
@@ -38,6 +38,7 @@ export const TemplateList = ({ classes, ...props }) => (
             <Datagrid rowClick="edit">
                 <TextField label="" source="" />
                 <EditButton />
+                <ShowButton />
             </Datagrid>
     </List>
 );

@@ -23,40 +23,34 @@ import {
 } from 'react-admin';
 
 
-const Minjustod01edrpuoFilter = (props) => (
+const Minjustod01edrpuoFilter = props => (
     <Filter {...props}>
                     <TextInput label="ЄДРПУО" source="edrpou" alwaysOn />
-                    <TextField label="Назва" source="name" alwaysOn />
-                    <TextField label="Коротка назва" source="shortname" />
-                    <TextField label="Керівник" source="bossname" />
-                    <TextField label="Адреса" source="address" />
-                    <TextField label="КВЕД" source="kved" alwaysOn />
-                    <TextField label="КВЕД повний" source="kvedfull" />
-                    <NumberField label="Почтовий індекс" source="postcode" />
-                    <TextField label="Стан реєстрації" source="status" alwaysOn />
+                    <TextInput label="Назва" source="name" alwaysOn />
+                    <TextInput label="Коротка назва" source="shortname" />
+                    <TextInput label="Керівник" source="bossname" />
+                    <TextInput label="Адреса" source="address" />
+                    <TextInput label="КВЕД" source="kved" alwaysOn />
+                    <TextInput label="КВЕД повний" source="kvedfull" />
+                    <TextInput label="Почтовий індекс" source="postcode" />
+                    <TextInput label="Стан реєстрації" source="status" />
     </Filter>
 );
 
-export const Minjustod01edrpuoList = ({ classes, ...props }) => (
-    <List
-        {...props}
-        filters={<Minjustod01edrpuoFilter />}
-        sort={{ field: 'edrpou', order: 'DESC' }}
-        perPage={50}
-    >
-             <Datagrid rowClick="edit">
-                    {/* <TextField source="id" /> */}
-                    <TextInput label="ЄДРПУО" source="edrpou" />
-                    <TextField label="Назва" source="name" />
-                    <TextField label="Коротка назва" source="shortname" />
-                    <TextField label="Керівник" source="bossname" />
-                    <TextField label="Адреса" source="address" />
-                    <TextField label="КВЕД" source="kved" />
-                    <TextField label="КВЕД повний" source="kvedfull" />
-                    <NumberField label="Почтовий індекс" source="postcode" />
-                    <TextField label="Стан реєстрації" source="status" />
-                <EditButton />
-            </Datagrid>
-        />
-    </List>
-);
+export const Minjustod01edrpuoList = ({ classes, ...props }) => {
+        return (<div> <List {...props} filters={<Minjustod01edrpuoFilter />} sort={{ field: 'edrpou', order: 'DESC' }} perPage={50}>
+                    <Datagrid>
+                        <TextField label="ЄДРПУО" source="edrpou" />
+                        <TextField label="Назва" source="name" />
+                        <TextField label="Коротка назва" source="shortname" />
+                        <TextField label="Керівник" source="bossname" />
+                        <TextField label="Адреса" source="address" />
+                        <TextField label="КВЕД" source="kved" />
+                        <TextField label="КВЕД повний" source="kvedfull" />
+                        <TextField label="Почтовий індекс" source="postcode" />
+                        <TextField label="Стан реєстрації" source="status" />
+                    </Datagrid>
+                </List>
+        </div>
+    )
+};
