@@ -146,7 +146,6 @@ while(1):
     if 'FOUNDERS' in record:
         founders=record['FOUNDERS']['FOUNDER']
         if isinstance(founders, list):
-            multy_edrpou_founders[edrpou] = founders
             multy_edrpou_founders_count += 1
             mef.write("'{}'\t'{}'\n".format(edrpou, founders))
             if '&sem;' in founders:

@@ -25,24 +25,24 @@ class Menu extends Component {
     };
 
     render() {
-        const { onMenuClick, open } = this.props;
+        const { onMenuClick, open, logout, } = this.props;
         return (
             <div>
                 {' '}
-                <DashboardMenuItem onClick={onMenuClick} />
+                {/* <DashboardMenuItem onClick={onMenuClick} /> */}
                 <SubMenu
                             handleToggle={() => this.handleToggle('menuMinjust')}
                             isOpen={this.state.menuMinjust}
                             sidebarIsOpen={open}
                             name="Міністерство юстиції"
-                            icon={AccountBalance}
+                            icon={<AccountBalance />}
                             >
                                 <MenuItemLink
                                 to={`/minjustod01uo`}
                                 primaryText='Юрідични ліца'
                                 onClick={onMenuClick}
-                                icon={AccountBalance}
-                                />                                
+                                leftIcon={<AccountBalance />}
+                                />                          
                 </SubMenu>
             </div>
         );

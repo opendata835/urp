@@ -25,3 +25,9 @@ npmstart.log
 
 #updaters
 /updater/minjustod01/data
+updater/minjustod01/data.bak/data/edrpou_founder.csv
+updater/minjustod01/data.bak/data/multy_edrpou_founder.csv
+updater/minjustod01/data.bak/data/uo.csv
+updater/minjustod01/data.bak/data/UO.xml.utf8
+updater/minjustod01/data.bak/data/sed*
+
