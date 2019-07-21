@@ -78,7 +78,6 @@ mef=open("data/multy_edrpou_founder.csv","w")
 line_processed = 0
 no_founders_count = 0
 multy_edrpou_founders_count = 0
-edrpou_founders = {}
 while(1):
     line=f.readline()
     if line == '</DATA>': break
@@ -154,9 +153,9 @@ while(1):
                 print(founders)
                 raise Exception('Error! &sem; is bad separator for founders!')
                 quit()
-            edrpou_founders[edrpou] = '&sem;'.join(founders)  #.replace('"', "&quot;")
+            founder = '&sem;'.join(founders)  #.replace('"', "&quot;")
         else:
-            edrpou_founders[edrpou] = founders  #.replace('"', "&quot;")
+            founder = founders  #.replace('"', "&quot;")
         ef.write("'{}'\t'{}'\n".format(edrpou, founder))
     else:
         no_founders_count+=1

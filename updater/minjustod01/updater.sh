@@ -5,6 +5,7 @@ function status(){
 	mv $data_dir $data_dir.bak
 	mkdir $data_dir
 	cd $data_dir
+	rm *
 
 	echo -e "Downloading..."
 	url=https://data.gov.ua/dataset/b244f35a-e50a-4a80-b704-032c42ba8142/resource/b0476139-62f2-4ede-9d3b-884ad99afd08/download/15-ufop.zip	
