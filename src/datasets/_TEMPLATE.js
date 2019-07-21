@@ -1,27 +1,33 @@
 import React from 'react';
+import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
 import {
-    Show,
-    ShowButton,
-    SimpleShowLayout,
-    RichTextField,
-    DateField,
     List,
-    Edit,
+    Show,
     Create,
-    Datagrid,
-    ReferenceField,
-    TextField,
+    Edit,
+    ShowButton,
     EditButton,
+    Filter,
+    Datagrid,
+    SimpleForm,
+    TabbedForm,
+    FormTab,
+    SimpleShowLayout,
+    TabbedShowLayout,
+    TabbedShowLayoutTabs,
+    RichTextField,
+    LongTextField,
+    ReferenceField,
+    DateField,
+    TextField,
+    TextInput,
     DisabledInput,
     LongTextInput,
     ReferenceInput,
     SelectInput,
-    SimpleForm,
-    TextInput,
-    Filter,
-    TabbedForm,
-    FormTab
 } from 'react-admin';
+import { Tab } from '@material-ui/core';
 
 const TemplateFilter = props => (
     <Filter {...props}>
@@ -40,10 +46,46 @@ export const TemplateList = ({ classes, ...props }) => (
              >
                 <Datagrid rowClick="edit">
                     <TextField label="" source="" />
+                    <ShowButton label="Детальніше"/>
                     <EditButton label="Змінити"/>
-                    <ShowButton />
                 </Datagrid>
         </List>
+    </div>
+);
+
+const cardActionStyle = {
+    zIndex: 2,
+    display: 'inline-block',
+    float: 'right',
+};
+
+const TemplateShowActions = ({ basePath, data, resource }) => (
+    <CardActions style={cardActionStyle}>
+        <EditButton basePath={basePath} record={data} label="Змінити"/>
+        {/* Add your custom actions */}
+        {/* <Button color="primary" onClick={customAction}>Custom Action</Button> */}
+    </CardActions>
+);
+
+const TemplateTitle = ({ record }) => {
+    return <span>Деталі по {record ? `"${record.id}"` : ''}</span>;
+};
+
+export const TemplateShow = ({ classes, ...props }) => (
+    <div>
+        <Show title={<TemplateTitle />} actions={<TemplateShowActions />} {...props}>
+            <SimpleShowLayout>
+            <TextField label="" source="" />
+            </SimpleShowLayout>
+            <TabbedShowLayout tabs={<TabbedShowLayoutTabs scrollable={true}/>}>
+                <Tab label="Основні">
+                    <TextField label="" source="" />
+                </Tab>
+                <Tab label="Основні" path="drugoe" >
+                    <TextField label="" source="" />
+                </Tab>
+            </TabbedShowLayout>
+        </Show>
     </div>
 );
 

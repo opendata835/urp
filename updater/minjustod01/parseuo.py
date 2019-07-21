@@ -142,7 +142,7 @@ while(1):
         if pindex is None: pindex=''
         address=address[7:]
     # name,short_name,edrpou,address,pindex,boss_name,kved_full,status,kved
-    org_data = [name,sname,edrpou,address,pindex,boss,kved_full,record['STAN'],kved]
+    org_data = ["",name,sname,edrpou,address,pindex,boss,kved_full,record['STAN'],kved]
     uo_writer.writerow(org_data)
     if 'FOUNDERS' in record:
         founders=record['FOUNDERS']['FOUNDER']
