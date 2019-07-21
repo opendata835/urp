@@ -39,7 +39,7 @@ class Menu extends Component {
                             >
                                 <MenuItemLink
                                 to={`/minjustod01uo`}
-                                primaryText='Юрідични ліца'
+                                primaryText='Юрідични особи'
                                 onClick={onMenuClick}
                                 leftIcon={<AccountBalance />}
                                 />                          
