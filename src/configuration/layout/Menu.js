@@ -25,7 +25,7 @@ class Menu extends Component {
     };
 
     render() {
-        const { onMenuClick, open } = this.props;
+        const { onMenuClick, open, logout, } = this.props;
         return (
             <div>
                 {' '}
@@ -35,13 +35,13 @@ class Menu extends Component {
                             isOpen={this.state.menuMinjust}
                             sidebarIsOpen={open}
                             name="Міністерство юстиції"
-                            icon={AccountBalance}
+                            leftIcon={<AccountBalance />}
                             >
                                 <MenuItemLink
                                 to={`/minjustod01uo`}
                                 primaryText='Юрідични ліца'
                                 onClick={onMenuClick}
-                                icon={AccountBalance}
+                                leftIcon={<AccountBalance />}
                                 />                                
                 </SubMenu>
             </div>
