@@ -1,37 +1,16 @@
 import React from 'react';
 import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
-import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import ChevronRight from '@material-ui/icons/ChevronRight';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import ResetViewsButton from '../service/ResetViewsButton';
 import {
-    CreateButton, 
     ShowButton,
+    EditButton,
     ExportButton, 
-    RefreshButton,
-    BulkDeleteButton,
     Show,
     SimpleShowLayout,
-    RichTextField,
-    DateField,
     List,
-    Edit,
-    Create,
     Datagrid,
-    ReferenceField,
     TextField,
-    EditButton,
-    DisabledInput,
-    LongTextInput,
-    ReferenceInput,
-    SelectInput,
-    SimpleForm,
     TextInput,
     Filter,
-    TabbedForm,
-    FormTab
 } from 'react-admin';
 
 
@@ -64,7 +43,6 @@ const Minjustod01UOListActions = ({
             filterValues,
             context: 'button',
         }) }
-        <CreateButton label="Додати" basePath={basePath} />
         <ExportButton label="Експорт"
             disabled={total === 0}
             resource={resource}
@@ -72,12 +50,8 @@ const Minjustod01UOListActions = ({
             filter={filterValues}
             exporter={exporter}
         />
-        <RefreshButton label="Оновити" />
-        {/* Add your custom actions */}
-        {/* <Button color="primary" onClick={customAction}>Custom Action</Button> */}
     </CardActions>
 );
-
 
 const Minjustod01UOFilter = props => (
     <Filter {...props}>
@@ -152,47 +126,3 @@ export const Minjustod01UOShow = (props) => (
         </Show>
     </div>
 );
-
-// export const Minjustod01UOCreate = ({ classes, ...props }) => (
-//     <div>
-//         <Create {...props }>
-//                 <TabbedForm redirect="show">
-//                     <FormTab label="Основні">
-//                         <TextInput label="ЄДРПОУ" source="edrpou" />
-//                         <TextInput label="Назва" source="name" />
-//                         <TextInput label="Коротка назва" source="shortname" />
-//                         <TextInput label="Керівник" source="bossname" />
-//                         <TextInput label="Адреса" source="address" />
-//                         <TextInput label="КВЕД" source="kved" />
-//                         <TextInput label="КВЕД повний" source="kvedfull" />
-//                         <TextInput label="Почтовий індекс" source="postcode" />
-//                         <TextInput label="Стан реєстрації" source="status" />
-//                     </FormTab>
-//                     <FormTab label="Додаткові">
-//                     </FormTab>
-//                 </TabbedForm>
-//         </Create>
-//     </div>
-// );
-
-// export const Minjustod01UOEdit = ({ classes, ...props }) => (
-//     <div>
-//         <Edit {...props}>
-//             <TabbedForm redirect="show">
-//                 <FormTab label="Основні">
-//                         <TextInput label="ЄДРПОУ" source="edrpou" />
-//                         <TextInput label="Назва" source="name" />
-//                         <TextInput label="Коротка назва" source="shortname" />
-//                         <TextInput label="Керівник" source="bossname" />
-//                         <TextInput label="Адреса" source="address" />
-//                         <TextInput label="КВЕД" source="kved" />
-//                         <TextInput label="КВЕД повний" source="kvedfull" />
-//                         <TextInput label="Почтовий індекс" source="postcode" />
-//                         <TextInput label="Стан реєстрації" source="status" />
-//                 </FormTab>
-//                 <FormTab label="Додаткові">
-//                 </FormTab>
-//             </TabbedForm>
-//         </Edit>
-//     </div>
-// );

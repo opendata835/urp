@@ -6,6 +6,7 @@ import React from 'react';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import { Tab } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 // import ChevronLeft from '@material-ui/icons/ChevronLeft';
 // import ChevronRight from '@material-ui/icons/ChevronRight';
 // import Toolbar from '@material-ui/core/Toolbar';
@@ -15,7 +16,11 @@ import {
     Pagination,
     CreateButton, 
     ShowButton,
-    ExportButton, 
+    EditButton,
+    SaveButton,
+    DeleteButton,
+    ExportButton,
+    CloneButton, 
     RefreshButton,
     BulkDeleteButton,
     Show,
@@ -28,7 +33,6 @@ import {
     Datagrid,
     ReferenceField,
     TextField,
-    EditButton,
     DisabledInput,
     LongTextInput,
     ReferenceInput,
@@ -59,6 +63,7 @@ import {
 //             </Toolbar>
 //     );
 // }
+
 
 const TemplateListActions = ({
     bulkActions,
@@ -132,6 +137,19 @@ const TemplateFilter = props => (
 //     </div>
 // );
 
+// Cоздание кнопки, которую можно повесить что бы создать связанную сущность.
+// const CreateRelatedYOUTYPEButton = ({ record }) => (
+//     <Button
+//         component={Link}
+//         to={{
+//             pathname: '/comments/create',
+//             state: { record: { post_id: record.id } },
+//         }}
+//     >
+//         Write a comment for that post
+//     </Button>
+// );
+
 export const TemplateList = ({ classes, ...props }) => (
     <div>
         <List
@@ -148,7 +166,9 @@ export const TemplateList = ({ classes, ...props }) => (
                 <Datagrid rowClick="edit">
                     <TextField sortable={false} label="" source="" />
                     <ShowButton label="Детальніше"/>
+                    <CloneButton label="Cкопіювати"/>
                     <EditButton label="Змінити"/>
+                    {/* <CreateRelatedYOUTYPEButton />  */}
                 </Datagrid>
         </List>
     </div>
@@ -160,6 +180,10 @@ const cardActionStyle = {
     float: 'right',
 };
 
+const TemplateTitle = ({ record }) => {
+    return <span>Деталі по {record ? `"${record.id}"` : ''}</span>;
+};
+
 const TemplateShowActions = ({ basePath, data, resource }) => (
     <CardActions style={cardActionStyle}>
         <EditButton basePath={basePath} record={data} label="Змінити"/>
@@ -167,10 +191,6 @@ const TemplateShowActions = ({ basePath, data, resource }) => (
         {/* <Button color="primary" onClick={customAction}>Custom Action</Button> */}
     </CardActions>
 );
-
-const TemplateTitle = ({ record }) => {
-    return <span>Деталі по {record ? `"${record.id}"` : ''}</span>;
-};
 
 export const TemplateShow = ({ classes, ...props }) => (
     <div>
@@ -190,10 +210,26 @@ export const TemplateShow = ({ classes, ...props }) => (
     </div>
 );
 
+const TemplateCreateToolbar = props => (
+    <Toolbar {...props} >
+        <SaveButton
+            label="post.action.save_and_show"
+            redirect="show"
+            submitOnEnter={true}
+        />
+        <SaveButton
+            label="post.action.save_and_add"
+            redirect={false}
+            submitOnEnter={false}
+            variant="flat"
+        />
+    </Toolbar>
+);
+
 export const TemplateCreate = ({ classes, ...props }) => (
     <div>
-        <Create {...props }>
-                <TabbedForm redirect="show">
+        <Create redirect="show" undoable={false} {...props }>
+                <TabbedForm  toolbar={<TemplateCreateToolbar />} >
                     <FormTab label="Основні">
                         <TextInput type="" autoFocus source="" formClassName={classes.nickname} />
                         <ReferenceInput source="" reference="" label="" defaultValue={5} >
@@ -207,10 +243,19 @@ export const TemplateCreate = ({ classes, ...props }) => (
     </div>
 );
 
+// Кастомный тульбар, можно удалить отсюда кнопку удаления и тогда при редактировании не ее не будет 
+const TemplateEditToolbar = props => (
+    <Toolbar {...props} >
+        <SaveButton />
+        <DeleteButton /> //  
+    </Toolbar>
+);
+
+
 export const TemplateEdit = ({ classes, ...props }) => (
     <div>
-        <Edit {...props}>
-            <TabbedForm redirect="show">
+        <Edit undoable={false} {...props}>
+            <TabbedForm toolbar={<TemplateEditToolbar />}> redirect="show" submitOnEnter={false} >
                 <FormTab label="Основні">
                     <TextInput type="" autoFocus source="" formClassName={classes.nickname} />
                     <ReferenceInput source="" reference="" label="" defaultValue={5} >
