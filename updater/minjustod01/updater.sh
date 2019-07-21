@@ -55,6 +55,7 @@ status
 echo "Parsing data"
 time ./parseuo.py
 
-sed -i -e "s/None/null/g" data/uo.tsv
 
+rm sed*
+rm UO.xml.utf8
 echo 'done'
