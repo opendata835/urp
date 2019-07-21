@@ -29,20 +29,20 @@ class Menu extends Component {
         return (
             <div>
                 {' '}
-                <DashboardMenuItem onClick={onMenuClick} />
+                {/* <DashboardMenuItem onClick={onMenuClick} /> */}
                 <SubMenu
                             handleToggle={() => this.handleToggle('menuMinjust')}
                             isOpen={this.state.menuMinjust}
                             sidebarIsOpen={open}
                             name="Міністерство юстиції"
-                            leftIcon={<AccountBalance />}
+                            icon={<AccountBalance />}
                             >
                                 <MenuItemLink
                                 to={`/minjustod01uo`}
                                 primaryText='Юрідични ліца'
                                 onClick={onMenuClick}
                                 leftIcon={<AccountBalance />}
-                                />                                
+                                />                          
                 </SubMenu>
             </div>
         );
