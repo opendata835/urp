@@ -4,7 +4,8 @@ import { Admin, Resource, ListGuesser, } from 'react-admin';
 import UserIcon from '@material-ui/icons/Group';
 
 
-import hasuraDataProvider from 'ra-data-hasura';
+//import hasuraDataProvider from 'ra-data-hasura';
+import hasuraDataProvider from './service/dataProvider/hasura_dp';
 import authProvider from './service/authProvider';
 
 import { Layout } from './configuration/layout';
@@ -17,7 +18,7 @@ import { Minjustod01UOList, Minjustod01UOShow, }  from './datasets/MinjustOD01UO
 
 
 const hasuraUrl = 'https://graphql.ecoalition.org.ua';
-const headers = {}
+const headers = {'content-type': 'application/json',}
 
 
 const App = () => (
