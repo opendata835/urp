@@ -1,5 +1,6 @@
 import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_CHECK, AUTH_ERROR } from 'react-admin';
-const {AUTH_URL}= require('../config');
+//const {AUTH_URL}= require('../config');
+const AUTH_URL= 'auth.ecoalition.org.ua';
 
 export default (type, params) => {
   if (type === AUTH_LOGIN) {
