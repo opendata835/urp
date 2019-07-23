@@ -71,7 +71,7 @@ export const Minjustod01UOList = (props) => {
         return (<div> <List 
                             {...props}
                             actions={<Minjustod01UOListActions />}
-                            title="Список юрідичних компанії"
+                            title="Юрідични особи"
                             filters={<Minjustod01UOFilter />}
                             sort={{ field: 'edrpou', order: 'DESC' }}
                             perPage={50}
