@@ -192,7 +192,7 @@ export const TemplateList = ({ classes, ...props }) => (
     </div>
 );
 
-const CardActionstyle = {
+const cardActionStyle = {
     zIndex: 2,
     display: 'inline-block',
     float: 'right',
@@ -203,7 +203,7 @@ const TemplateTitle = ({ record }) => {
 };
 
 const TemplateShowActions = ({ basePath, data, resource }) => (
-    <CardActions style={CardActionstyle}>
+    <CardActions style={cardActionStyle}>
         <EditButton basePath={basePath} record={data} label="Змінити"/>
         {/* Add your custom actions */}
         {/* <Button color="primary" onClick={customAction}>Custom Action</Button> */}
