@@ -1,10 +1,11 @@
 import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_CHECK, AUTH_ERROR } from 'react-admin';
-const {AUTH_URL}= require('../config');
+//const {AUTH_URL}= require('../config');
+const AUTH_URL= 'https://auth.ecoalition.org.ua';
 
 export default (type, params) => {
   if (type === AUTH_LOGIN) {
         const { username, password } = params;
-        const request = new Request(AUTH_URL+'/login', {
+        const request = new Request(AUTH_URL+'/auth/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),
