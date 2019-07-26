@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { propTypes, reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
-
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';
 import {
@@ -17,7 +15,7 @@ import {
 } from '@material-ui/core/styles';
 import LockIcon from '@material-ui/icons/Lock';
 
-import { Notification, translate, userLogin } from 'react-admin';
+import { Notification, translate, userLogin, CardActions } from 'react-admin';
 
 import { lightTheme } from './themes';
 
@@ -86,7 +84,7 @@ class Login extends Component {
         );
 
     render() {
-        const { classes, handleSubmit, isLoading, translate } = this.props;
+        const { classes, handleSubmit, loading, translate } = this.props;
         return (
             <div className={classes.main}>
                 <Card className={classes.card}>
@@ -104,7 +102,7 @@ class Login extends Component {
                                     name="username"
                                     component={renderInput}
                                     label={translate('username')}
-                                    disabled={isLoading}
+                                    disabled={loading}
                                 />
                             </div>
                             <div className={classes.input}>
@@ -113,7 +111,7 @@ class Login extends Component {
                                     component={renderInput}
                                     label={translate('password')}
                                     type="password"
-                                    disabled={isLoading}
+                                    disabled={loading}
                                 />
                             </div>
                         </div>
@@ -122,11 +120,11 @@ class Login extends Component {
                                 variant="raised"
                                 type="submit"
                                 color="primary"
-                                disabled={isLoading}
+                                disabled={loading}
                                 className={classes.button}
                                 fullWidth
                             >
-                                {isLoading && (
+                                {loading && (
                                     <CircularProgress size={25} thickness={2} />
                                 )}
                                 {translate('ra.auth.sign_in')}
@@ -149,7 +147,7 @@ Login.propTypes = {
     userLogin: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({ isLoading: state.admin.loading > 0 });
+const mapStateToProps = state => ({ loading: state.admin.loading > 0 });
 
 const enhance = compose(
     translate,

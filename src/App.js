@@ -1,10 +1,9 @@
 import React from 'react';
-import { Admin, Resource, ListGuesser, } from 'react-admin';
+import { routerMiddleware, connectRouter } from 'connected-react-router';
+import { Admin, Resource, ListGuesser, AuthContext } from 'react-admin';
+import { createMuiTheme } from '@material-ui/core/styles';
 
-import UserIcon from '@material-ui/icons/Group';
-
-
-//import hasuraDataProvider from 'ra-data-hasura';
+// import hasuraDataProvider from 'ra-data-hasura';
 import hasuraDataProvider from './service/dataProvider/hasura_dp';
 import authProvider from './service/authProvider';
 
@@ -20,20 +19,26 @@ import { Minjustod01UOList, Minjustod01UOShow, }  from './datasets/MinjustOD01UO
 const hasuraUrl = 'https://graphql.ecoalition.org.ua';
 const headers = {'content-type': 'application/json',}
 
+const theme = createMuiTheme({
+    sidebar: {
+        width: 300, // The default value is 240
+        closedWidth: 70, // The default value is 55
+    },
+});
 
 const App = () => (
     <div>    
-        <Admin
+        <Admin>
             dataProvider={hasuraDataProvider(hasuraUrl, headers)}
             authProvider={authProvider}
             menu={Menu}
             appLayout={Layout}
             locale="ua"
-            // customReducers={{ theme: themeReducer }}
-        >
+            theme={theme}
+            {/* customReducers={{ theme: themeReducer }}  */}
             {/* <Resource name="" list={ListGuesser} /> */}
             {/* <Resource name="" {...} /> */}
-            <Resource name="minjustod01uo" icon={UserIcon} list={Minjustod01UOList} show={Minjustod01UOShow} />
+            <Resource name="minjustod01uo" list={Minjustod01UOList} show={Minjustod01UOShow} />
         </Admin>
     </div>
 );

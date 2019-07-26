@@ -10,7 +10,7 @@ import {
     Datagrid,
     TextField,
     TextInput,
-    Filter,
+    Filter
 } from 'react-admin';
 
 
@@ -92,14 +92,14 @@ export const Minjustod01UOList = (props) => {
     )
 };
 
-const cardActionStyle = {
+const CardActionstyle = {
     zIndex: 2,
     display: 'inline-block',
     float: 'right',
 };
 
 const Minjustod01UOShowActions = ({ basePath, data, resource }) => (
-    <CardActions style={cardActionStyle}>
+    <CardActions style={CardActionstyle}>
         <EditButton basePath={basePath} record={data} label="Змінити" />
         {/* Add your custom actions */}
     </CardActions>
