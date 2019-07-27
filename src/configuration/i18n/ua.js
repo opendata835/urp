@@ -32,7 +32,7 @@ export default {
         minjust: {
             name: 'Міністерство юстиції',
             item: {
-                minjustod01uo: 'Юрідичны особи',
+                minjustod01uo: 'Юрідичні особи',
             }
             
         },
