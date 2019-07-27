@@ -1,4 +1,4 @@
-//  Название всех констант содержит "Template"
+//  Название всех констант содержит "Users"
 //  Заменив его на название табилы (или другое логическое) автоматически происходит генерация небоходимого функционала
 //  Предварительно необходимо описать полученые автоматически поля, правильно прописать типы и рассатавить это все по Filter, List и другим 
 //  Не нужный функционал закоментировать
@@ -40,12 +40,12 @@ import {
     ReferenceField,
     TextField,
     NumberField,
-    BooleanField,
-    BooleanInput,
     NumberInput,
     DisabledInput,
     LongTextInput,
     ReferenceInput,
+    BooleanInput,
+    BooleanField,
     SelectInput,
     TextInput,
     Filter,
@@ -68,9 +68,9 @@ import {
 } from 'react-admin';
 
 // кастомный пагинатор, Для маленьких списков
-const TemplatePagination = props => <Pagination rowsPerPageOptions={[10, 25, 50, 100]} {...props} />
+const UsersPagination = props => <Pagination rowsPerPageOptions={[10, 25, 50, 100]} {...props} />
 
-const TemplateListActions = ({
+const UsersListActions = ({
     bulkActions,
     basePath,
     currentSort,
@@ -115,7 +115,7 @@ const TemplateListActions = ({
 
 
 // Пока не работает, что то не то происходит
-// const TemplateBulkActionButtons = props => (
+// const UsersBulkActionButtons = props => (
 //     <div>
 //         <ResetViewsButton label="Скинути вибір" {...props} />
 //         {/* Add the default bulk delete action */}
@@ -124,10 +124,9 @@ const TemplateListActions = ({
 // );
 
 
-const TemplateFilter = props => (
+const UsersFilter = props => (
     <Filter {...props}>
-                <TextInput label="" source="" alwaysOn defaultValue="" />
-                <TextInput label="" source="" />
+                <TextInput label="Користувач" source="username" alwaysOn />
     </Filter>
 );
 
@@ -135,9 +134,9 @@ const TemplateFilter = props => (
 // Блок справа, несет в себе разную информацию суммы и тд. https://marmelab.com/react-admin/List.html 
 // const Aside = () => (
 //     <div style={{ width: 200, margin: '1em' }}>
-//         <Typography variant="title">Template details</Typography>
+//         <Typography variant="title">Users details</Typography>
 //         <Typography variant="body1">
-//             Total views: {ids.map(id => data[id]).reduce((sum, Template) => sum + Template.views, 0)}
+//             Total views: {ids.map(id => data[id]).reduce((sum, Users) => sum + Users.views, 0)}
 //         </Typography>
 //     </div>
 // );
@@ -148,28 +147,29 @@ const TemplateFilter = props => (
 //         component={Link}
 //         to={{
 //             pathname: '/comments/create',
-//             state: { record: { Template_id: record.id } },
+//             state: { record: { Users_id: record.id } },
 //         }}
 //     >
-//         Write a comment for that Template
+//         Write a comment for that Users
 //     </Button>
 // );
 
-export const TemplateList = ({ classes, ...props }) => (
+export const UsersList = ({ classes, ...props }) => (
     <div>
         <List
             {...props}
-            title=""
-            actions={<TemplateListActions />}
-            filters={<TemplateFilter />}
-            pagination={<TemplatePagination />}
-            sort={{ field: '', order: 'DESC' }}
+            title="Користувачи"
+            actions={<UsersListActions />}
+            filters={<UsersFilter />}
+            pagination={<UsersPagination />}
+            sort={{ field: 'created_at', order: 'DESC' }}
         >
-                <Datagrid rowClick="edit">
-                    <TextField sortable={false} label="" source="" />
-                    <ReferenceField label="Author" source="user_id" reference="users" />
+                <Datagrid>
+                    <DateField label="Cтворен"source="created_at" showTime />
+                    <TextField label="Користувач" source="username" />
+                    <BooleanField label="Активный" source="active" />
+                    <TextField label="Роль" source="default_role" />
                     <ShowButton label="ra.action.show"/>
-                    <CloneButton label="ra.action.clone"/>
                     <EditButton label="ra.action.edit"/>
                 </Datagrid>
         </List>
@@ -182,11 +182,11 @@ const cardActionStyle = {
     float: 'right',
 };
 
-const TemplateTitleShow = ({ record }) => {
-    return <span>Деталі по {record ? `"${record.name}"` : ''}</span>;
+const UsersTitleShow = ({ record }) => {
+    return <span>Деталі по {record ? `"${record.username}"` : ''}</span>;
 };
 
-const TemplateShowActions = ({ basePath, data, resource }) => (
+const UsersShowActions = ({ basePath, data, resource }) => (
     <CardActions style={cardActionStyle}>
         <EditButton basePath={basePath} record={data} label="ra.action.edit"/>
         {/* Add your custom actions */}
@@ -194,25 +194,20 @@ const TemplateShowActions = ({ basePath, data, resource }) => (
     </CardActions>
 );
 
-export const TemplateShow = ({ classes, ...props }) => (
+export const UsersShow = ({ classes, ...props }) => (
     <div>
-        <Show title={<TemplateTitleShow />} actions={<TemplateShowActions />} {...props}>
+        <Show title={<UsersTitleShow />} actions={<UsersShowActions />} {...props}>
             <SimpleShowLayout>
-            <TextField label="" source="" />
+                <DateField label="Cтворен"source="created_at" />
+                <TextField label="Користувач" source="username" />
+                <BooleanField label="Активный" source="active" />
+                <TextField label="Роль" source="default_role" />
             </SimpleShowLayout>
-            <TabbedShowLayout tabs={<TabbedShowLayoutTabs scrollable={true}/>}>
-                <Tab label="Основні">
-                    <TextField label="" source="" />
-                </Tab>
-                <Tab label="Основні" path="drugoe" >
-                    <TextField label="" source="" />
-                </Tab>
-            </TabbedShowLayout>
         </Show>
     </div>
 );
 
-const TemplateCreateToolbar = props => (
+const UsersCreateToolbar = props => (
     <Toolbar {...props} >
         <SaveButton
             label="ra.action.save_and_show"
@@ -240,29 +235,23 @@ const TemplateCreateToolbar = props => (
 
 
 
-export const TemplateCreate = ({ classes, ...props }) => (
+export const UsersCreate = ({ classes, ...props }) => (
     <div>
         <Create redirect="show" undoable={false} {...props }>
-                <SimpleForm  toolbar={<TemplateCreateToolbar />} >
-                    <TextField label="" source="" />
-                </SimpleForm>
-
-                <TabbedForm  toolbar={<TemplateCreateToolbar />} >
-                    <FormTab label="Основні">
-                        <TextInput type="" autoFocus source="" formClassName={classes.nickname} />
-                        <ReferenceInput source="" reference="" label="" defaultValue={5} >
-                            <SelectInput source="" />
-                        </ReferenceInput>
-                    </FormTab>
-                    <FormTab label="Додаткові">
-                    </FormTab>
-                </TabbedForm>
+            <SimpleForm  toolbar={<UsersCreateToolbar />} >
+                <TextInput label="Користувач" source="username" />
+                <BooleanInput label="Активный" source="active" />
+                <ReferenceInput label="Роль" source="default_role" reference="roles" sortBy="roles.id">
+                    <SelectInput source="name"  />
+                </ReferenceInput>
+                <TextInput label="Пароль" source="password" type="password" />
+            </SimpleForm>
         </Create>
     </div>
 );
 
 // Кастомный тульбар, можно удалить отсюда кнопку удаления и тогда при редактировании не ее не будет 
-const TemplateEditToolbar = props => (
+const UsersEditToolbar = props => (
     <Toolbar {...props} >
         <SaveButton />
         <DeleteButton /> //  
@@ -270,27 +259,21 @@ const TemplateEditToolbar = props => (
 );
 
 
-const TemplateTitleEdit = ({ record }) => {
+const UsersTitleEdit = ({ record }) => {
     return <span>Редагування {record ? `"${record.username}"` : ''}</span>;
 };
 
-export const TemplateEdit = ({ classes, ...props }) => (
+export const UsersEdit = ({ classes, ...props }) => (
     <div>
-        <Edit title={<TemplateTitleEdit />} undoable={false} {...props}>
-            <SimpleForm>
-                <TextInput label="" source="" />
-            </SimpleForm>
-            
-            <TabbedForm toolbar={<TemplateEditToolbar />}> redirect="show" submitOnEnter={false} >
-                <FormTab label="Основні">
-                    <TextInput type="" autoFocus source="" formClassName={classes.nickname} />
-                    <ReferenceInput source="" reference="" label="" defaultValue={5} >
-                        <SelectInput source="" />
-                    </ReferenceInput>
-                </FormTab>
-                <FormTab label="Додаткові">
-                </FormTab>
-            </TabbedForm>
+        <Edit title={<UsersTitleEdit />} undoable={false} {...props}>
+        <SimpleForm  toolbar={<UsersCreateToolbar />} >
+            <TextInput label="Користувач" source="username" />
+            <BooleanInput label="Активный" source="active" />
+            <ReferenceInput label="Роль" source="default_role" reference="roles" sortBy="roles.id">
+                <SelectInput source="name"  />
+            </ReferenceInput>
+            <TextInput label="Пароль" source="password" type="password" />
+        </SimpleForm>
         </Edit>
     </div>
 );

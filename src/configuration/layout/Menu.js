@@ -3,12 +3,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { withRouter } from 'react-router-dom';
+import SubMenu from './SubMenu';
 import {
+    translate,
     DashboardMenuItem,
     MenuItemLink,
+    Responsive,
 } from 'react-admin';
-import AccountBalance from '@material-ui/icons/AccountBalance'
-import SubMenu from './SubMenu';
+
+// Иконки 
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance'
+import PeopleIcon from '@material-ui/icons/People'
+import SettingsIcon from '@material-ui/icons/Settings'
+
 
 
 class Menu extends Component {
@@ -18,6 +25,7 @@ class Menu extends Component {
 
     static propTypes = {
         onMenuClick: PropTypes.func,
+        logout: PropTypes.object,
     };
 
     handleToggle = menu => {
@@ -25,24 +33,50 @@ class Menu extends Component {
     };
 
     render() {
-        const { onMenuClick, open, logout, } = this.props;
+        const { onMenuClick, open, logout, translate } = this.props;
         return (
             <div>
                 {' '}
                 {/* <DashboardMenuItem onClick={onMenuClick} /> */}
                 <SubMenu
-                            handleToggle={() => this.handleToggle('menuMinjust')}
-                            isOpen={this.state.menuMinjust}
-                            sidebarIsOpen={open}
-                            name="Міністерство юстиції"
-                            icon={<AccountBalance />}
-                            >
-                                <MenuItemLink
-                                to={`/minjustod01uo`}
-                                primaryText='Юрідични особи'
-                                onClick={onMenuClick}
-                                leftIcon={<AccountBalance />}
-                                />                          
+                    handleToggle={() => this.handleToggle('menuSystem')}
+                    isOpen={this.state.menuSystem}
+                    sidebarIsOpen={open}
+                    name="menu.system.name"
+                    icon={<SettingsIcon />}
+                >
+                        <MenuItemLink
+                            to={`/users`}
+                            primaryText={translate(`menu.system.item.users`, {
+                                smart_count: 2,
+                            })}
+                            onClick={onMenuClick}
+                            leftIcon={<PeopleIcon />}
+                        />                                
+                        <MenuItemLink
+                            to={`/roles`}
+                            primaryText={translate(`menu.system.item.roles`, {
+                                smart_count: 2,
+                            })}
+                            onClick={onMenuClick}
+                            leftIcon={<PeopleIcon />}
+                        />
+                </SubMenu>
+                <SubMenu
+                    handleToggle={() => this.handleToggle('menuMinjust')}
+                    isOpen={this.state.menuMinjust}
+                    sidebarIsOpen={open}
+                    name="menu.minjust.name"
+                    icon={<AccountBalanceIcon />}
+                >
+                        <MenuItemLink
+                            to={`/minjustod01uo`}
+                            primaryText={translate(`menu.minjust.item.minjustod01uo`, {
+                                smart_count: 2,
+                            })}
+                            onClick={onMenuClick}
+                            leftIcon={<AccountBalanceIcon />}
+                        />                          
                 </SubMenu>
             </div>
         );
@@ -61,6 +95,7 @@ const enhance = compose(
         mapStateToProps,
         {}
     ),
+    translate
 );
 
 export default enhance(Menu);
