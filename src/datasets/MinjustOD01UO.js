@@ -43,7 +43,7 @@ const Minjustod01UOListActions = ({
             filterValues,
             context: 'button',
         }) }
-        <ExportButton label="Експорт"
+        <ExportButton label="ra.action.export"
             disabled={total === 0}
             resource={resource}
             sort={currentSort}
@@ -72,7 +72,7 @@ export const Minjustod01UOList = (props) => {
                             {...props}
                             actions={<Minjustod01UOListActions />}
                             title="Юрідични особи"
-                            filters={<Minjustod01UOFilter />}
+                            filters={<Minjustod01UOFilter /> }
                             sort={{ field: 'edrpou', order: 'DESC' }}
                             perPage={50}
                     >
@@ -84,7 +84,7 @@ export const Minjustod01UOList = (props) => {
                         <TextField sortable={false} label="КВЕД" source="kved" />
                         <TextField sortable={false} label="Почтовий індекс" source="postcode" />
                         <TextField sortable={false} label="Стан реєстрації" source="status" />
-                        <ShowButton label="Деталі"/>
+                        <ShowButton label="ra.action.show"/>
                         {/* <EditButton label="Змінити"/> */}
                     </Datagrid>
                 </List>
@@ -100,7 +100,7 @@ const cardActionStyle = {
 
 const Minjustod01UOShowActions = ({ basePath, data, resource }) => (
     <CardActions style={cardActionStyle}>
-        <EditButton basePath={basePath} record={data} label="Змінити" />
+        <EditButton basePath={basePath} record={data} label="ra.action.edit" />
         {/* Add your custom actions */}
     </CardActions>
 );
