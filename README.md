@@ -1,4 +1,4 @@
-# urp
+# Ukrainian Registry Platform
 
 ## Опис
 
