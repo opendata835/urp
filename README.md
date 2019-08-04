@@ -14,6 +14,6 @@ https://reestr.ecoalition.org.ua/
 
 ## Додатково
 
-Драфт: https://docs.google.com/document/d/1rTrNQQuEYwiRNLLcLYJIsKoEHd69B3_5nyrOSm8NAQM/edit?usp=sharing
+Кооперація розробки: https://project.ecoalition.org.ua/projects/urp
 
-Кооперація розробки: https://t.me/OpenData835
+Драфт: https://docs.google.com/document/d/1rTrNQQuEYwiRNLLcLYJIsKoEHd69B3_5nyrOSm8NAQM/edit?usp=sharing
