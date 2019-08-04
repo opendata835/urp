@@ -1,10 +1,10 @@
 # Ukrainian Registry Platform
 
-## Опис
+Open Source рішення для формування, актуалізації, зберігання, валідації та публікації відкритих, публічних та службових реєстрів
 
-Ukrainian Registry Platform - Open Source рішення для формування, актуалізації, зберігання, валідації та публікації відкритих, публічних та службових реєстрів
+## Презентація: 
 
-Презентація: http://bit.ly/UkrainianRegistryPlatform
+http://bit.ly/UkrainianRegistryPlatform
 
 ## Адреса для тестування
 
